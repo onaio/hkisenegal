@@ -81,7 +81,7 @@ pecsApp.controller('guineaCtrl', function ($scope, $http) {
     // get data from bamboo
     $http({
         method: 'GET',
-        url: 'http://bamboo.io/datasets/d1483cb5b7074bc48922b612e01b9ee1'
+        url: 'http://bamboo.io/datasets/6a481610678d46cc87c6242349354f6c'
     })
         .success(function (data, status, headers, config) {
             // See here, we are now assigning this username
@@ -94,7 +94,7 @@ pecsApp.controller('guineaCtrl', function ($scope, $http) {
 
     $http({
         method: 'GET',
-        url: 'http://bamboo.io/datasets/e78afcec70ae45589ddaf8e5c9bd23cc'
+        url: 'http://bamboo.io/datasets/ac7ba10a924343c6a44c7c86ca164873'
     })
         .success(function (data, status, headers, config) {
             // See here, we are now assigning this username
@@ -107,12 +107,25 @@ pecsApp.controller('guineaCtrl', function ($scope, $http) {
 
     $http({
         method: 'GET',
-        url: 'http://bamboo.io/datasets/9a37298d643843c5a62df43b34f27247'
+        url: 'http://bamboo.io/datasets/90c8f5cca79843b1a81d6aa1b4b52002'
     })
         .success(function (data, status, headers, config) {
             // See here, we are now assigning this username
             // to our existing model!
             $scope.summary = data;
+        })
+        .error(function (data, status, headers, config) {
+            // something went wrong :(
+        });
+
+    $http({
+        method: 'GET',
+        url: 'http://bamboo.io/datasets/3732ba55ddf24126857a17b4083f68e1'
+    })
+        .success(function (data, status, headers, config) {
+            // See here, we are now assigning this username
+            // to our existing model!
+            $scope.survey_dates = data;
         })
         .error(function (data, status, headers, config) {
             // something went wrong :(
