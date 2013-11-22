@@ -4,32 +4,15 @@
 
 <h5>By Day: <span ng-repeat="d in survey_dates">{{d.survey_count}} </span></h5>
 
+<div class="gridStyle" ng-grid="bydayGrid"></div>
+
 <h4>Surveys by Enqueteur</h4>
 
-<div class="table-responsive">
-
-    <table class="table table-hover">
-        <th>Enqueteur</th>
-        <th># Surveys</th>
-        <tr ng-repeat="s in survey">
-            <td>{{s.enqueteur}}</td>
-            <td>{{s.count}}</td>
-        </tr>
-    </table>
-</div>
+<div class="gridStyle" ng-grid="enqueteurGrid"></div>
 
 <h4>Surveys by Villages</h4>
-<div class="table-responsive">
 
-    <table class="table table-hover">
-        <th>Village</th>
-        <th># Surveys</th>
-        <tr ng-repeat="a in area">
-            <td>{{a.village}}</td>
-            <td>{{a.count}}</td>
-        </tr>
-    </table>
-</div>
+<div class="gridStyle" ng-grid="villageGrid"></div>
 
 <div class="footer">
     <p>&copy; Helen Keller International, 2013</p>

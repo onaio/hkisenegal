@@ -146,8 +146,22 @@
             site: 'ukw530:8000'
         };
         $scope.survey = ona.query(query);
+        $scope.enqueteurGrid = {data: 'survey',
+            columnDefs: [{field:'enqueteur', displayName:'Enqueteur'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = '_submission_time';
+        query.name = 'day';
+        $scope.byday = ona.query(query);
+        $scope.bydayGrid = {data: 'byday',
+            columnDefs: [{field:'day', displayName:'Date'}, {field:'count', displayName:'# Surveys'}]
+        };
+
         query.group = 'village';
         $scope.area = ona.query(query);
+        $scope.villageGrid = {data: 'area',
+            columnDefs: [{field:'village', displayName:'Village'}, {field:'count', displayName:'# Surveys'}]
+        };
 
     }]);
 })();
