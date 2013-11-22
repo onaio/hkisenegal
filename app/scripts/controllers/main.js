@@ -128,35 +128,26 @@
     });
 
 
-    pecsApp.controller('guineaCtrl', function ($scope, $http) {
+    pecsApp.controller('guineaCtrl', [ "$scope", "$http", "OnadataService", function ($scope, $http, ona) {
 
-        console.log($scope);
+        // enable CORS
+        $http.defaults.useXDomain = true;
+        delete $http.defaults.headers.common['X-Requested-With'];
+        // onadata api token
+        $http.defaults.headers.common.Authorization = 'Token b632f0b82d0a888f03f3c747dc8db7b79af9f581';
+
         $scope.survey = {};
         $scope.country = "Guinea";
         // get form info from ona.io
-        // delete $http.defaults.headers.common['X-Requested-With'];
-        // $http.defaults.useXDomain = true;
-        $http({
-            method: 'GET',
-            cache: false,
-            withCredentials: true,
-            url2: 'hkiguineadata',
-            url: 'http://ukw530:8000/api/v1/stats/submissions/ukanga/Meres_gardiennes_15-11-13?group=enqueteur'
-        }).success(function(data, status, headers, config){
-            $scope.survey = data;
-        }).error(function(data, status, headers, config){
-                // something went wrong :(
-        });
+        var query = {
+            group: 'enqueteur',
+            user: 'ukanga',
+            formid: 'Meres_gardiennes_15-11-13',
+            site: 'ukw530:8000'
+        };
+        $scope.survey = ona.query(query);
+        query.group = 'village';
+        $scope.area = ona.query(query);
 
-        $http({
-            method: 'GET',
-            cache: false,
-            withCredentials: true,
-            url: 'http://ukw530:8000/api/v1/stats/submissions/ukanga/Meres_gardiennes_15-11-13?group=village'
-        }).success(function(data, status, headers, config){
-            $scope.area = data;
-        }).error(function(data, status, headers, config){
-                // something went wrong :(
-        });
-    });
+    }]);
 })();
