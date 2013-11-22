@@ -145,6 +145,7 @@
             formid: 'Meres_gardiennes_15-11-13',
             site: 'ukw530:8000'
         };
+        query.name = 'enqueteur';
         $scope.survey = ona.query(query);
         $scope.enqueteurGrid = {data: 'survey',
             columnDefs: [{field:'enqueteur', displayName:'Enqueteur'}, {field:'count', displayName:'# Surveys'}]
@@ -158,6 +159,7 @@
         };
 
         query.group = 'village';
+        query.name = 'village';
         $scope.area = ona.query(query);
         $scope.villageGrid = {data: 'area',
             columnDefs: [{field:'village', displayName:'Village'}, {field:'count', displayName:'# Surveys'}]
