@@ -1,14 +1,19 @@
 
 <br><br>
-<h3>{{country}} (<span ng-repeat="s in summary">{{s.survey_count}}</span>)</h3>
+<h3>{{country}}</h3>
 
-<h5>By Day: <span ng-repeat="d in survey_dates">{{d.survey_count}} </span></h5>
+
+<h4>Surveys by Day</h4>
 
 <div class="gridStyle" ng-grid="bydayGrid"></div>
 
 <h4>Surveys by Enqueteur</h4>
 
 <div class="gridStyle" ng-grid="enqueteurGrid"></div>
+
+<h4>Surveys by Sous-Prefecture</h4>
+
+<div class="gridStyle" ng-grid="spGrid"></div>
 
 <h4>Surveys by Villages</h4>
 
