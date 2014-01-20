@@ -149,7 +149,7 @@
         $http.defaults.headers.common.Authorization = 'Token 7468abd7e98236c3609e3edb242cd23606304d5e';
 
         $scope.survey = {};
-        $scope.country = "Akw Ibomm";
+        $scope.country = "Akwa Ibomm";
         // get form info from ona.io
         var query = {
             group: 'consent_group/date_interview',
