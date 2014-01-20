@@ -23,6 +23,10 @@
                     templateUrl: 'views/guinea.html',
                     controller: 'guineaCtrl'
                 })
+                .when('/nigeria', {
+                    templateUrl: 'views/nigeria.html',
+                    controller: 'nigeriaCtrl'
+                })
                 .otherwise({
                     redirectTo: '/guinea'
                 });

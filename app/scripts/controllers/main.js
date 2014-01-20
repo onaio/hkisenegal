@@ -140,6 +140,38 @@
 
     }]);
 
+    pecsApp.controller('nigeriaCtrl', [ "$scope", "$http", "OnadataService", function ($scope, $http, ona) {
+
+        // enable CORS
+        $http.defaults.useXDomain = true;
+        delete $http.defaults.headers.common['X-Requested-With'];
+        // onadata api token
+        $http.defaults.headers.common.Authorization = 'Token 7468abd7e98236c3609e3edb242cd23606304d5e';
+
+        $scope.survey = {};
+        $scope.country = "Nigeria";
+        // get form info from ona.io
+        var query = {
+            group: 'consent_group/date_interview',
+            user: 'hkinigeriadata',
+            formid: 'caretaker_Akwa_IBOMM',
+            site: 'ona.io'
+        };
+        query.name = 'date_interview';
+        $scope.dayofinterview = ona.query(query);
+        $scope.dayofinterviewGrid = {data: 'dayofinterview',
+            columnDefs: [{field:'date_interview', displayName:'Date of Interview'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/interviewer_name';
+        query.name = 'interviewer_name';
+        $scope.interviewer = ona.query(query);
+        $scope.interviewerGrid = {data: 'interviewer',
+            columnDefs: [{field:'interviewer_name', displayName:'Interviewer Name'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+    }]);
+
 
 
 
