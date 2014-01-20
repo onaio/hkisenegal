@@ -186,6 +186,52 @@
 
     }]);
 
+    pecsApp.controller('benueCtrl', [ "$scope", "$http", "OnadataService", function ($scope, $http, ona) {
+
+        // enable CORS
+        $http.defaults.useXDomain = true;
+        delete $http.defaults.headers.common['X-Requested-With'];
+        // onadata api token
+        $http.defaults.headers.common.Authorization = 'Token 7468abd7e98236c3609e3edb242cd23606304d5e';
+
+        $scope.survey = {};
+        $scope.country = "Benue";
+        // get form info from ona.io
+        var query = {
+            group: 'consent_group/date_interview',
+            user: 'hkinigeriadata',
+            formid: 'caretaker_Benue',
+            site: 'ona.io'
+        };
+        query.name = 'date_interview';
+        $scope.dayofinterview = ona.query(query);
+        $scope.dayofinterviewGrid = {data: 'dayofinterview',
+            columnDefs: [{field:'date_interview', displayName:'Date of Interview'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/interviewer_name';
+        query.name = 'interviewer_name';
+        $scope.interviewer = ona.query(query);
+        $scope.interviewerGrid = {data: 'interviewer',
+            columnDefs: [{field:'interviewer_name', displayName:'Interviewer Name'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/village';
+        query.name = 'village';
+        $scope.village = ona.query(query);
+        $scope.villageGrid = {data: 'village',
+            columnDefs: [{field:'village', displayName:'Village Name'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/LGA';
+        query.name = 'village_lga';
+        $scope.villagelga = ona.query(query);
+        $scope.villagelgaGrid = {data: 'villagelga',
+            columnDefs: [{field:'village_lga', displayName:'Village LGA'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+    }]);
+
 
 
 
