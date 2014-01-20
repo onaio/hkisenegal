@@ -140,7 +140,7 @@
 
     }]);
 
-    pecsApp.controller('nigeriaCtrl', [ "$scope", "$http", "OnadataService", function ($scope, $http, ona) {
+    pecsApp.controller('akwaibommCtrl', [ "$scope", "$http", "OnadataService", function ($scope, $http, ona) {
 
         // enable CORS
         $http.defaults.useXDomain = true;
@@ -149,7 +149,7 @@
         $http.defaults.headers.common.Authorization = 'Token 7468abd7e98236c3609e3edb242cd23606304d5e';
 
         $scope.survey = {};
-        $scope.country = "Nigeria";
+        $scope.country = "Akw Ibomm";
         // get form info from ona.io
         var query = {
             group: 'consent_group/date_interview',
@@ -168,6 +168,20 @@
         $scope.interviewer = ona.query(query);
         $scope.interviewerGrid = {data: 'interviewer',
             columnDefs: [{field:'interviewer_name', displayName:'Interviewer Name'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/village';
+        query.name = 'village';
+        $scope.village = ona.query(query);
+        $scope.villageGrid = {data: 'village',
+            columnDefs: [{field:'village', displayName:'Village Name'}, {field:'count', displayName:'# Surveys'}]
+        };
+
+        query.group = 'consent_group/village_LGA';
+        query.name = 'village_lga';
+        $scope.villagelga = ona.query(query);
+        $scope.villagelgaGrid = {data: 'villagelga',
+            columnDefs: [{field:'village_lga', displayName:'Village LGA'}, {field:'count', displayName:'# Surveys'}]
         };
 
     }]);

@@ -23,7 +23,11 @@
                     templateUrl: 'views/guinea.html',
                     controller: 'guineaCtrl'
                 })
-                .when('/nigeria', {
+                .when('/akwaibomm', {
+                    templateUrl: 'views/nigeria.html',
+                    controller: 'akwaibommCtrl'
+                })
+                .when('/benue', {
                     templateUrl: 'views/nigeria.html',
                     controller: 'nigeriaCtrl'
                 })
