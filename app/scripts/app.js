@@ -32,7 +32,7 @@
                     controller: 'benueCtrl'
                 })
                 .otherwise({
-                    redirectTo: '/guinea'
+                    redirectTo: '/akwaibomm'
                 });
         }]);
 })();
