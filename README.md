@@ -1,4 +1,4 @@
-HKI PECS
-========
+hkisenegal
+==========
 
-HKI PECs Mobile Monitoring Dashboard
+HKI Senegal PECS Dashboard
