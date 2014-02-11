@@ -11,28 +11,20 @@
         ])
         .config(["$routeProvider", "$httpProvider", function ($routeProvider, $httpProvider) {
             $routeProvider
-                .when('/cameroon', {
-                    templateUrl: 'views/cameroon.html',
-                    controller: 'cameroonCtrl'
+                .when('/meres', {
+                    templateUrl: 'views/meres.html',
+                    controller: 'meresCtrl'
                 })
-                .when('/burkina', {
-                    templateUrl: 'views/burkina.html',
-                    controller: 'burkinaCtrl'
+                .when('/personnel', {
+                    templateUrl: 'views/meres.html',
+                    controller: 'personnelCtrl'
                 })
-                .when('/guinea', {
-                    templateUrl: 'views/guinea.html',
-                    controller: 'guineaCtrl'
-                })
-                .when('/akwaibomm', {
-                    templateUrl: 'views/nigeria.html',
-                    controller: 'akwaibommCtrl'
-                })
-                .when('/benue', {
-                    templateUrl: 'views/nigeria.html',
-                    controller: 'benueCtrl'
+                .when('/agents', {
+                    templateUrl: 'views/meres.html',
+                    controller: 'agentsCtrl'
                 })
                 .otherwise({
-                    redirectTo: '/akwaibomm'
+                    redirectTo: '/meres'
                 });
         }]);
 })();
